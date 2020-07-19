@@ -67,7 +67,7 @@ Tv Show:
 
 we can specify the fields to be returned from the server in the response using the _fields_ query param.
 
-**syntaxe** : \_?fields=field1,field2,field3... \
+**syntaxe** : ?fields=field1,field2,field3...\
 **example** : GET http://localhost:8080/api/movies?fields=title,summary,genres
 
 ![Markdown Logo](images/1.png)
@@ -83,15 +83,15 @@ we make use of 2 query params: page & limit.
 	limit: number of results per page	
 </pre>
 
-**syntaxe**: _?page=[page-number]&limit=[limit-value]_
-**example**: _GET http://localhost:8080/api/shows?page=2&limit=4&fields=id,title,ratingValue_
+**syntaxe**: page=[page-number]&limit=[limit-value]\
+**example**: GET http://localhost:8080/api/shows?page=2&limit=4&fields=id,title,ratingValue_
 ![Markdown Logo](images/2.png)
 
 ### sorting
 
 we can sort the returned results based on multiple fields(only desc).
 
-**syntaxe**: _?sort=field1,field2_
+**syntaxe**: ?sort=field1,field2\
 **example**: _GET http://localhost:8080/api/movies?sort=releaseYear,ratingValue&fields=title,releaseYear,ratingValue_
 
 ![Markdown Logo](images/3.png)
