@@ -285,5 +285,5 @@ and here is an example of the client not respecting the constraints.
     ```
     mvn spring-boot:run    
     ```
-* Head to go to http://localhost:8080/api/movies?mediaType=json
+* Head to http://localhost:8080/api/movies?mediaType=json
 
