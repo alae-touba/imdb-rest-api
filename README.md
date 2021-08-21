@@ -1,14 +1,25 @@
 # Table of content
 
--   **[About](#about)**
--   **[Data Form](#data-form)**
--   **[Api Features](#api-features)**
--   **[Api Endpoints](#api-endpoints)**
--   **[Choosing The Media Type](#choosing-the-media-type)**
--   **[Handling Exceptions](#handling-exceptions)**
--   **[Use It Locally](#use-it-locally)**
-
-<a name="about"></a>
+- [Table of content](#table-of-content)
+- [About](#about)
+- [Data form](#data-form)
+- [Api Features](#api-features)
+    - [1. selecting fields](#1-selecting-fields)
+    - [2. pagination](#2-pagination)
+    - [3. sorting](#3-sorting)
+    - [=> combine theme all](#-combine-theme-all)
+- [Api Endpoints](#api-endpoints)
+- [Choosing The Media Type](#choosing-the-media-type)
+    - [method1 of choosing the media type:](#method1-of-choosing-the-media-type)
+    - [method2 of choosing the media type:](#method2-of-choosing-the-media-type)
+- [Handling Exceptions](#handling-exceptions)
+    - [example1](#example1)
+    - [example2:](#example2)
+    - [example3](#example3)
+    - [example4](#example4)
+    - [example5](#example5)
+    - [example6](#example6)
+- [Use it locally](#use-it-locally)
 
 # About
 
@@ -23,7 +34,6 @@ The api is written in java using spring(boot/rest) framework.
 example of a GET request:
 ![Markdown Logo](images/test.png)
 
-<a name="data-form"></a>
 
 # Data form
 
@@ -59,11 +69,10 @@ Tv Show:
 
 > you can find the data inside dev-data folder in the root of the project.
 
-<a name="api-features"></a>
 
 # Api Features
 
-### selecting fields
+### 1. selecting fields
 
 we can specify the fields to be returned from the server in the response using the _fields_ query param.
 
@@ -72,7 +81,7 @@ we can specify the fields to be returned from the server in the response using t
 
 ![Markdown Logo](images/1.png)
 
-### pagination
+### 2. pagination
 
 This api returns 250 result for both resources (250 movies & 250 tv shows).\
 This is quit a lot to return, so we paginate the result to make sure the results are easier to handle.
@@ -84,10 +93,10 @@ we make use of 2 query params: page & limit.
 </pre>
 
 **syntaxe**: page=[page-number]&limit=[limit-value]\
-**example**: GET http://localhost:8080/api/shows?page=2&limit=4&fields=id,title,ratingValue_
+**example**: GET http://localhost:8080/api/shows?page=2&limit=4&fields=id,title,ratingValue\_
 ![Markdown Logo](images/2.png)
 
-### sorting
+### 3. sorting
 
 we can sort the returned results based on multiple fields(only desc).
 
@@ -102,7 +111,6 @@ we can sort the returned results based on multiple fields(only desc).
 
 ![Markdown Logo](images/4.png)
 
-<a name="api-endpoints"></a>
 
 # Api Endpoints
 
@@ -124,7 +132,6 @@ PATCH   /api/shows
 DELETE  /api/shows/:id
 ```
 
-<a name="choosing-the-media-type"></a>
 
 # Choosing The Media Type
 
@@ -132,8 +139,8 @@ we can choose the media type(format) of the response. It can be JSON or XML.
 
 ### method1 of choosing the media type:
 
-using a query param named mediaType (by default its json)
-**syntax**: _?mediaType=[xml|json]_
+using a query param named mediaType (by default its json)\
+**syntax**: _?mediaType=[xml|json]_\
 **example**: _GET http://localhost:8080/api/movies?mediaType=xml_
 
 ![Markdown Logo](images/5.png)
@@ -144,7 +151,6 @@ setting the _accept_ param in the headers to be "application/json" or "applicati
 
 ![Markdown Logo](images/6.png)
 
-<a name="handling-exceptions"></a>
 
 # Handling Exceptions
 
@@ -267,13 +273,17 @@ public class Movie{
 and here is an example of the client not respecting the constraints.
 ![Markdown Logo](images/14.png)
 
-<a name="use-it-locally"></a>
 
 # Use it locally
 
-```
-make sure you have maven installed
-clone the repo
-run it as a java app (or use: mvn spring-boot:run from command line)
-go to http://localhost:8080/api/movies
-```
+* Make sure You have Java +11 installed (along with JAVA_HOME env varibale)
+* Make sure you have Maven installed (along with MAVEN_HOME & M2_HOME env variables)
+* Download the projet as a zip file 
+* Unzip it
+* Open the terminal & run 
+ 
+    ```
+    mvn spring-boot:run    
+    ```
+* Head to go to http://localhost:8080/api/movies?mediaType=json
+

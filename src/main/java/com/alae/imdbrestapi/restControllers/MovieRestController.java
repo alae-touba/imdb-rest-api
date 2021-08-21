@@ -33,7 +33,6 @@ public class MovieRestController {
         movies = mapper.readValue(new File("dev-data/movies-details.json"), Movie[].class);
     }
 
-
     @GetMapping(path = "")
     public ResponseEntity<Object> findAll(@RequestParam(required = false) Map<String, String> params) {
         var moviesClone = movies.clone();
